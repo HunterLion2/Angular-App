@@ -1,7 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-3">
-
-    </div>
+<div *ngIf="!loading">
+  <div class="card mb-3 p-1 border border-warning" *ngIf="product else noProducts">
+      <!-- Burada da bir for döngüsü kullanmış olduk ve bu sayede tekrar tekrar yazmayız. -->
+      <div class="row">
+          <div class="col-3">
+              <img src="assets/images/ {{ product.imageUrl }}" alt="" class="img-fluid rounded-start">
+          </div>
+          <!-- Buradaki çift süslü parantez ile product-list-components.ts'in içindeki product'a ulaşırız. -->
+          <div class="col-9">
+              <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+              </div>
+          </div>
+      </div>
+      <div class="row mt-3">
+          <div class="col-12">
+              <p class="card-text" [innerHTML]="product.description"></p>
+          </div>
+      </div>
   </div>
+</div>
+
+<ng-template #noProducts>
+  <div class="alert alert-warning">
+      No Products
+  </div>
+</ng-template>
+
+<div *ngIf="loading" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
 </div>
