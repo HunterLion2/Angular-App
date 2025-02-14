@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from './category.model';
 
 @Component({
   selector: 'categories',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
+
 
   constructor() { }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product.model';
+import { ProductService } from '../Service/product.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'product',
@@ -8,12 +10,26 @@ import { Product } from './product.model';
 })
 export class ProductComponent implements OnInit {
 
-  private product: Product | undefined
-  private loading: boolean = false
+  product: Product | undefined;
+  loading: boolean = false;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService,
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.route.params.subscribe(data => {
+      const id = data["productId"];
+      this.loading = true;
+
+      this.productService.getProductsById(id).subscribe(result => {
+        this.loading = false;
+      });
+    })
+
+  }
 
 
 
