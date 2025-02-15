@@ -16,12 +16,13 @@
       <!-- Burada da bir for döngüsü kullanmış olduk ve bu sayede tekrar tekrar yazmayız. -->
       <div class="row">
         <div class="col-3">
-          <img src="assets/images/{{ product.imageUrl }}" alt="" class="img-fluid rounded-start">
+          <img src="assets/images/{{ product.imageUrl }}" alt="" class="img-fluid rounded-start w-75">
         </div>
         <!-- Buradaki çift süslü parantez ile product-list-components.ts'in içindeki product'a ulaşırız. -->
         <div class="col-9">
           <div class="card-body">
             <h5 class="card-title"> {{ product.name }} </h5>
+            <p>{{ product.description }}</p>
             <a routerLink="/products/{{ product.id }}" class="btn btn-primary"> Ürün Detay </a>
           </div>
         </div>

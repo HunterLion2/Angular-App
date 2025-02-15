@@ -15,7 +15,7 @@ export class ProductService {
 
 
   getProducts(categoryId: number):Observable<Product[]> {
-    return this.http.get<Product[]>(this.url + 'product.json').pipe(
+    return this.http.get<Product[]>(this.url + 'products.json').pipe(
       map((data) => {
           const products: Product[] = [];
 
@@ -45,7 +45,7 @@ export class ProductService {
   }
 
   createProduct(product: Product):Observable<Product[]> {
-    return this.http.post<Product[]>(this.url + 'products/' + product.id + '.json', product).pipe(
+    return this.http.post<Product[]>(this.url + 'products/' + '.json' , product).pipe(
       delay(1000)
     );
   }
