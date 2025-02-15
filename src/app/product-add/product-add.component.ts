@@ -13,7 +13,12 @@ import { Router } from '@angular/router';
 })
 export class ProductAddComponent implements OnInit {
 
-  categories: Category[] | undefined;
+  categories: Category[] = [
+    {id: 1, name: "Telefon"},
+    {id: 2, name: "Bilgisayar"},
+    {id: 3, name: "Elektronik"}
+  ]
+
   model: any = {
     name: "",
     price: 0,
@@ -52,10 +57,10 @@ export class ProductAddComponent implements OnInit {
       return
     }
 
-    // if(this.model.categoryId == "0") {
-    //   this.error = "Kategori Değerini Seçiniz";
-    //   return
-    // }
+    if(this.model.categoryId == "0") {
+      this.error = "Kategori Değerini Seçiniz";
+      return
+    }
 
     if(form.valid) {
       this.productService.createProduct(product).subscribe( (data) => {

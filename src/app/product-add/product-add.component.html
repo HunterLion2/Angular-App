@@ -7,7 +7,8 @@
       </div>
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input required minlength="5" [(ngModel)]="model.name" type="text" name="name" id="name" class="form-control">
+        <input required minlength="5" [(ngModel)]="model.name" #name = "ngModel" type="text" name="name" id="name" class="form-control">
+        <div *ngIf="name.touched && name.invalid" style="color: red;">Lütfen 5 karakterden az ununlukta isim vermeyiniz</div>
       </div>
 
       <div class="mb-3">
@@ -19,6 +20,7 @@
       <div class="mb-3">
         <label for="imageUrl" class="form-label">İmageUrl</label>
         <input required [(ngModel)]="model.imageUrl" #imageUrl = "ngModel" type="text" name="imageUrl" id="imageUrl" class="form-control">
+        <div  *ngIf="imageUrl.invalid && imageUrl.touched" class="mt-1" style="color: red;">Lütfen jpeg, jpg, png uzantılı dosyaları kullanınız.</div>
       </div>
 
       <div class="mb-3">
@@ -39,7 +41,7 @@
         </select>
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="form.invalid" >Save Product</button>
-
+          <!-- Buradaki form.invalid değerinde ki invlid değeri bizim söylediğimiz şartların uygunluğana bakar eğer uygunluk yoksa o zaman buraı çalıştırmaz.-->
     </form>
   </div>
 </div>

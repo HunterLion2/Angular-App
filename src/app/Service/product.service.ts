@@ -31,7 +31,8 @@ export class ProductService {
           return products;
       }),
       tap( (data) => {
-        console.log(data)
+        console.log(data),
+        console.log(this.url)
       }),
       delay(1000)
     )
