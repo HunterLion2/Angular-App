@@ -1,15 +1,28 @@
-<div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Category 1
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-          <a href=""></a>
+<div *ngIf=" categories.length > 0 else NoCategories " >
+  <ng-template [ngTemplateOutlet]="categoryList" ></ng-template>
+</div>
+
+<ng-template #categoryList let-category = "categories">
+  <div class="accordion mt-4" id="accordionExample">
+    <div class="accordion-item" *ngFor="let category of categories" >
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">{{ category.name }}</button>
+
+
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <a href="" class="brand">Telefon</a>
+        </div>
       </div>
     </div>
   </div>
+</ng-template>
 
-</div>
+
+<ng-template #NoCategories >
+    <div class="alert alert-danger mt-4">
+        <h5>Category bulunmamaktadır.</h5>
+    </div>
+</ng-template>

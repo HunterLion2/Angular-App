@@ -19,16 +19,18 @@ export class ProductComponent implements OnInit {
     private productService: ProductService
   ) {}
 
-
   ngOnInit(): void {
 
     this.route.params.subscribe( (params) => {
       this.loading = true;
 
       this.productService.getProducts(params["categoryId"]).subscribe(data => {
+        console.log(data)
         this.products = data;
         this.loading = false;
       });
     });
+
+
   }
 }

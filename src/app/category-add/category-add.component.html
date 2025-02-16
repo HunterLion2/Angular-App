@@ -1,0 +1,8 @@
+<form #form="ngForm" (submit)="saveCategory()">
+    <div class="mb-2">
+        <h3 class="mb-3 mt-4">Category Oluşturma</h3>
+        <label for="category" class="mb-2 mt-2 form-label">Category Name</label>
+        <input type="text" class="form-control w-50" [(ngModel)]="model.name" #category = "ngModel" name="category" id="category">
+        <button class="btn btn-outline-success mt-3" type="submit">Kaydet</button>
+    </div>
+</form>

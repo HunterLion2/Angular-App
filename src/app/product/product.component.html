@@ -12,7 +12,7 @@
 
 <ng-template #productList let-products="productsas">
   <div *ngFor="let product of products">
-    <div *ngIf="product.isActive" class="card mb-3 p-1">
+    <div *ngIf="product.isActive" class="card mb-3 p-1 mt-4">
       <!-- Burada da bir for döngüsü kullanmış olduk ve bu sayede tekrar tekrar yazmayız. -->
       <div class="row">
         <div class="col-3">
@@ -21,8 +21,9 @@
         <!-- Buradaki çift süslü parantez ile product-list-components.ts'in içindeki product'a ulaşırız. -->
         <div class="col-9">
           <div class="card-body">
-            <h5 class="card-title"> {{ product.name }} </h5>
+            <h4 class="card-title"> {{ product.name }} </h4>
             <p>{{ product.description }}</p>
+            <h5>{{ product.price + "TL" }}</h5>
             <a routerLink="/products/{{ product.id }}" class="btn btn-primary"> Ürün Detay </a>
           </div>
         </div>
