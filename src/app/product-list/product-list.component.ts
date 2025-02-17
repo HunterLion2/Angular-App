@@ -11,15 +11,31 @@ import { Product } from '../product/product.model';
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[] | undefined;
+  product: Product[] = [];
   loading: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
-    private ProductService: ProductService
-  ) {}
+    private productService: ProductService
+   ) {}
+
 
   ngOnInit(): void {
+    this.route.params.subscribe( params => { // Buradaki route yapısı angular'ın içinde olan bir yapıdır kütüphaneden çekip kullanırız buradaki params ise parametre anlamına gelir subscribe ise asenckron bir bilginin ne zaman geliceği belli olmadığı zaman kullanılır bu özellikde kütüphanenin içerisindedirç.
+
+      const id = params["categoryId"];
+      this.loading = true;
+
+      this.productService.getProductsById(id).subscribe(result => {
+        console.log(result)
+        this.product = result; // Burada ki ...product değeri kopyalar ve id ekler.
+        this.loading = false;
+      });
+    })
   }
+
+  // unselectProduct() {
+  //   this.unSelectElement.emit();
+  // }
 
 }

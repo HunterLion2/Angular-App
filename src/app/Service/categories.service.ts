@@ -13,29 +13,22 @@ export class CategoryService {
     private http: HttpClient
   ) {}
 
-  getCategories(categoryId: string): Observable<Category[]> {
-    return this.http.get<{ [key: string]: Category }>(this._url + 'categories.json').pipe(
-      map((data) => {
-        const categories: Category[] = [];
-        for (let key in data) {
-          if (data.hasOwnProperty(key)) {
-            if (categoryId) {
-              if (categoryId == data[key].id) {
-                categories.push({ ...data[key], id: key });
-              }
-            } else {
-              categories.push({ ...data[key], id: key });
-            }
-          }
-        }
-        return categories;
-      }),
-      delay(1000)
-    );
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(this._url + "categories.json")
+           .pipe(
+              map(data => {
+                const categories: Category[] = [];
+
+                for(const key in data) {
+                  categories.push({ ...data[key], id:[key] });
+                }
+                return categories;
+              })
+            );
   }
 
   postCategories(form: { name: any; }):Observable<Category> {
-    return this.http.post<Category>(this._url + 'categories/' + '.json' , form).pipe(
+    return this.http.post<Category>(this._url + 'categories.json' , form).pipe(
       delay(1000)
     )
   }

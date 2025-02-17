@@ -36,8 +36,8 @@
       <div class="mb-3">
         <label for="categoryId" class="form-label">category</label>
         <select [(ngModel)] = "model.categoryId" #categoryId = "ngModel"  name="categoryId" id="categoryId" class="form-select">
-          <option value="0">Telefon</option>
-          <option *ngFor="let category of categories" value="{{ category.id }}">{{ category.name }}</option>
+          <option value="0">Category Giriniz</option>
+          <option *ngFor="let category of categories" value="{{ category.name }}">{{ category.name }}</option>
         </select>
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="form.invalid" >Save Product</button>

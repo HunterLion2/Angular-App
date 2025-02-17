@@ -1,0 +1,27 @@
+<div *ngIf="!loading">
+  <div *ngIf="product.length > 0; else noProducts">
+    <div class="card mb-3 p-1 border border-warning" *ngFor="let products of product">
+      <div class="row">
+        <div class="col-3">
+          <img src="assets/images/{{ products.imageUrl }}" alt="" class="img-fluid rounded-start">
+        </div>
+        <div class="col-9">
+          <div class="card-body">
+            <h5 class="card-title">{{ products.name }}</h5>
+            <p class="card-text" [innerHTML]="products.description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noProducts>
+  <div class="alert alert-warning">
+    No Products
+  </div>
+</ng-template>
+
+<div *ngIf="loading" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>

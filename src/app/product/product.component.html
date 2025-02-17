@@ -5,7 +5,7 @@
 </div>
 
 <ng-template #noProducts>
-  <div class="alert alert-warning">
+  <div class="alert alert-warning mt-4">
     No Products
   </div>
 </ng-template>
@@ -24,7 +24,7 @@
             <h4 class="card-title"> {{ product.name }} </h4>
             <p>{{ product.description }}</p>
             <h5>{{ product.price + "TL" }}</h5>
-            <a routerLink="/products/{{ product.id }}" class="btn btn-primary"> Ürün Detay </a>
+            <a routerLink="/products/{{ product.categoryId }}/{{ product.name}}" class="btn btn-primary"> Ürün Detay </a>
           </div>
         </div>
       </div>
