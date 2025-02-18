@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   database_url: "https://deneme-angular-project-default-rtdb.firebaseio.com/",
   api_key: "AIzaSyDIj4mtfNtd9NyTMDTDg8MqJOrhqfgenp0",
+  adminEmail: "cozgurgil@gmail.com"
 };
 
 /*

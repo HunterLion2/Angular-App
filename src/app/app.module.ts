@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CategoryAddComponent } from './category-add/category-add.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CategoryAddComponent } from './category-add/category-add.component';
     ProductAddComponent,
     ProductListComponent,
     CategoryAddComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
